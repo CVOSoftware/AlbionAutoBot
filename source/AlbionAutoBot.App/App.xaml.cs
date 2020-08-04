@@ -16,7 +16,7 @@ namespace AlbionAutoBot.App
         {
             base.OnStartup(e);
 
-            var viewModel = new MainViewModel();
+            var viewModel = new ManagerViewModel();
             var view = new ManagerWindow();
 
             view.DataContext = viewModel;

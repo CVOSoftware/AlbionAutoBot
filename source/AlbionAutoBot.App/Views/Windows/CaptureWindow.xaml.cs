@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace AlbionAutoBot.App.Views.Windows
 {
-    /// <summary>
-    /// Interaction logic for CaptureWindow.xaml
-    /// </summary>
     public partial class CaptureWindow : Window
     {
         public CaptureWindow()

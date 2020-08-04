@@ -1,12 +1,58 @@
-﻿<Window x:Class="AlbionAutoBot.App.Views.Windows.ManagerWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AlbionAutoBot.App"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+﻿<Window 
+    x:Class="AlbionAutoBot.App.Views.Windows.ManagerWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:AlbionAutoBot.App"
+    mc:Ignorable="d"
+    Title="Bot manager"
+    ResizeMode="NoResize"
+    WindowStyle="None"
+    Topmost="True"
+    AllowsTransparency="True"
+    Background="Transparent"
+    Height="{Binding Height, Mode=TwoWay}" 
+    Width="{Binding Width, Mode=TwoWay}"
+    Left="{Binding CoordinateX, Mode=TwoWay}"
+    Top="{Binding CoordinateY, Mode=TwoWay}">
+    <Border
+        Padding="10"
+        CornerRadius="5"
+        Background="WhiteSmoke">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Button 
+                    Grid.Column="2"
+                    Content="X"
+                    Command="{Binding CloseCommand}"/>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button
+                    Grid.Column="0"
+                    Margin="0, 0, 5, 0"
+                    Content="Start"
+                    Command="{Binding StartCaptureCommand}"/>
+                <Button
+                    Grid.Column="1"
+                    Margin="5, 0, 0, 0"
+                    Content="Stop"
+                    Command="{Binding StopCaptureCommand}"/>
+            </Grid>
+        </Grid>
+    </Border>
 </Window>
