@@ -1,17 +1,34 @@
-﻿using AlbionAutoBot.App.ViewModels.Base;
-using System;
+﻿using System;
 using System.Windows;
+using System.ComponentModel;
+using AlbionAutoBot.App.ViewModels.Base;
 
 namespace AlbionAutoBot.App.Helpers
 {
     public static class WindowHelper
     {
-        public static void Open<TView>(BaseViewModel viewModel) where TView : Window
+        public static void CollapseCurrentWindow()
+        {
+            Application.Current.MainWindow.Visibility = Visibility.Collapsed;
+        }
+
+        public static void VisibleCurrentWindow()
+        {
+            Application.Current.MainWindow.Visibility = Visibility.Visible;
+        }
+
+        public static void SubscribeToEventClossing(CancelEventHandler eventHandler)
+        {
+            Application.Current.MainWindow.Closing += eventHandler;
+        }
+
+        public static void Open<TView>(BaseViewModel viewModel, Action closeAction) where TView : Window
         {
             var view = Activator.CreateInstance<TView>();
 
             view.Owner = Application.Current.MainWindow;
             view.DataContext = viewModel;
+            view.Closing += (o, e) => closeAction();
             view.Show();
         }
 

@@ -37,22 +37,13 @@
                     Content="X"
                     Command="{Binding CloseCommand}"/>
             </Grid>
-            <Grid Grid.Row="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="2">
                 <Button
                     Grid.Column="0"
-                    Margin="0, 0, 5, 0"
+                    Width="100"
                     Content="Start"
                     Command="{Binding StartCaptureCommand}"/>
-                <Button
-                    Grid.Column="1"
-                    Margin="5, 0, 0, 0"
-                    Content="Stop"
-                    Command="{Binding StopCaptureCommand}"/>
-            </Grid>
+            </StackPanel>
         </Grid>
     </Border>
 </Window>

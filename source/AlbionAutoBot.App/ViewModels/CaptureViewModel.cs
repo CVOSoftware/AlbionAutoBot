@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using MVVMLight.Messaging;
+using AlbionAutoBot.App.Helpers;
 
 namespace AlbionAutoBot.App.ViewModels
 {

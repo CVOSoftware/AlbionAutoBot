@@ -7,6 +7,7 @@ using AlbionAutoBot.App.Commands;
 using AlbionAutoBot.App.Helpers;
 using AlbionAutoBot.App.ViewModels.Base;
 using AlbionAutoBot.App.Views.Windows;
+using MVVMLight.Messaging;
 
 namespace AlbionAutoBot.App.ViewModels
 {
@@ -69,28 +70,15 @@ namespace AlbionAutoBot.App.ViewModels
         {
             var viewModel = new CaptureViewModel();
 
-            WindowHelper.Open<CaptureWindow>(viewModel);
+            WindowHelper.CollapseCurrentWindow();
+            WindowHelper.Open<CaptureWindow>(
+                viewModel: viewModel, 
+                closeAction: () => {
+                WindowHelper.VisibleCurrentWindow();
+            });
         }
 
         private bool CanStartCapture(object commandParameter)
-        {
-            return true;
-        }
-
-        #endregion
-
-        #region StopCaptureCommand
-
-        private RelayCommand stopCaptureCommand;
-
-        public RelayCommand StopCaptureCommand => RelayCommand.Register(ref stopCaptureCommand, OnStopCapture, CanStopCapture);
-
-        private void OnStopCapture(object commandParameter)
-        {
-            WindowHelper.CloseAllOwnedCurrentWindow();
-        }
-
-        private bool CanStopCapture(object commandParameter)
         {
             return true;
         }
