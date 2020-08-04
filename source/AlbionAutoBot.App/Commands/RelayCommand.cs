@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace AlbionAutoBot.App.Command
+namespace AlbionAutoBot.App.Commands
 {
     internal class RelayCommand : ICommand
     {
