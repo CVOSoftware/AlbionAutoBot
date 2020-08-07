@@ -1,26 +1,24 @@
-﻿using AlbionAutoBot.App.ViewModels;
-using AlbionAutoBot.App.Views.Windows;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
+using AlbionAutoBot.App.ViewModels;
 
 namespace AlbionAutoBot.App
 {
     public partial class App : Application
     {
+        private ManagerViewModel managerViewModel;
+
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
-            var viewModel = new ManagerViewModel();
-            var view = new ManagerWindow();
+            managerViewModel = new ManagerViewModel();
+        }
 
-            view.DataContext = viewModel;
-            view.Show();
+        protected override void OnExit(ExitEventArgs e)
+        {
+            base.OnExit(e);
+
+            managerViewModel.Dispose();
         }
     }
 }

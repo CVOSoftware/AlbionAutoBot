@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.ComponentModel;
+using MVVMLight.Messaging;
 using AlbionAutoBot.App.Commands;
-using AlbionAutoBot.App.Helpers;
 using AlbionAutoBot.App.ViewModels.Base;
 using AlbionAutoBot.App.Views.Windows;
-using MVVMLight.Messaging;
 
 namespace AlbionAutoBot.App.ViewModels
 {
-    internal class ManagerViewModel : BaseViewModel
+    internal class ManagerViewModel : WindowBaseViewModel<ManagerWindow>
     {
         #region Fields
 
@@ -25,7 +26,7 @@ namespace AlbionAutoBot.App.ViewModels
 
         #endregion
 
-        public ManagerViewModel()
+        public ManagerViewModel() : base()
         {
             SetWindow();
         }
@@ -70,12 +71,7 @@ namespace AlbionAutoBot.App.ViewModels
         {
             var viewModel = new CaptureViewModel();
 
-            WindowHelper.CollapseCurrentWindow();
-            WindowHelper.Open<CaptureWindow>(
-                viewModel: viewModel, 
-                closeAction: () => {
-                WindowHelper.VisibleCurrentWindow();
-            });
+            SetCollapseCurrentWindow();
         }
 
         private bool CanStartCapture(object commandParameter)
@@ -93,19 +89,28 @@ namespace AlbionAutoBot.App.ViewModels
 
         private void OnClose(object commandParameter)
         {
-            WindowHelper.CloseCurrentMainWindow();
+            CloseCurrentMainWindow();
         }
 
         #endregion
 
         #endregion
 
+        #region Implementation WindowBaseViewModel
+
+        protected override void OnClosing(object sender, CancelEventArgs e)
+        {
+            base.OnClosing(sender, e);
+        }
+
+        #endregion
+
         private void SetWindow()
         {
-            width = 300;
-            height = 400;
-            coordinateX = WindowHelper.GetWorkAreaWidth() - width - 20;
-            coordinateY = WindowHelper.GetWorkAreaHeight() - height - 20;
+            Width = 300;
+            Height = 400;
+            CoordinateX = GetWorkAreaWidth() - width - 20;
+            CoordinateY = GetWorkAreaHeight() - height - 20;
         }
     }
 }

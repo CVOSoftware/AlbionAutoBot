@@ -1,20 +1,32 @@
-﻿using AlbionAutoBot.App.ViewModels.Base;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.ComponentModel;
 using MVVMLight.Messaging;
-using AlbionAutoBot.App.Helpers;
+using AlbionAutoBot.App.ViewModels.Base;
+using AlbionAutoBot.App.Views.Windows;
 
 namespace AlbionAutoBot.App.ViewModels
 {
-    internal class CaptureViewModel : BaseViewModel
+    internal class CaptureViewModel : WindowBaseViewModel<CaptureWindow>
     {
-        public CaptureViewModel()
+        public CaptureViewModel() : base()
         {
 
         }
+
+        #region Implementation WindowBaseViewModel
+
+        protected override void OnClosing(object sender, CancelEventArgs e)
+        {
+            base.OnClosing(sender, e);
+
+            SetVisibleCurrentWindow();
+        }
+
+        #endregion
     }
 }

@@ -78,8 +78,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commands\RelayCommand.cs" />
-    <Compile Include="Helpers\WindowHelper.cs" />
-    <Compile Include="ViewModels\Base\BaseViewModel.cs" />
+    <Compile Include="ViewModels\Base\BindableBaseViewModel.cs" />
+    <Compile Include="ViewModels\Base\WindowBaseViewModel.cs" />
     <Compile Include="ViewModels\CaptureViewModel.cs" />
     <Compile Include="ViewModels\ManagerViewModel.cs" />
     <Compile Include="Views\Windows\CaptureWindow.xaml.cs">
