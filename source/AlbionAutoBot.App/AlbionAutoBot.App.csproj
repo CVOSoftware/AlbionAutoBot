@@ -62,6 +62,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Views\Controls\User\StartCaptureUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Style\Brush.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Style\Color.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Style\Theme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Windows\CaptureWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -78,10 +94,17 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Messages\StartCaptureWindowMessage.cs" />
+    <Compile Include="Messages\UpdateMonitoringStatusMessage.cs" />
+    <Compile Include="Services\ProcessMonitoringService.cs" />
     <Compile Include="ViewModels\Base\BindableBaseViewModel.cs" />
     <Compile Include="ViewModels\Base\WindowBaseViewModel.cs" />
     <Compile Include="ViewModels\CaptureViewModel.cs" />
+    <Compile Include="ViewModels\Components\StartCaptureViewModel.cs" />
     <Compile Include="ViewModels\ManagerViewModel.cs" />
+    <Compile Include="Views\Controls\User\StartCaptureUC.xaml.cs">
+      <DependentUpon>StartCaptureUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Windows\CaptureWindow.xaml.cs">
       <DependentUpon>CaptureWindow.xaml</DependentUpon>
     </Compile>
@@ -117,8 +140,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Controls\User\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

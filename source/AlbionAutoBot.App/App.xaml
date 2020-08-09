@@ -1,8 +1,15 @@
-﻿<Application x:Class="AlbionAutoBot.App.App"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:AlbionAutoBot.App">
+﻿<Application 
+    x:Class="AlbionAutoBot.App.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:AlbionAutoBot.App">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Views/Style/Color.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Views/Style/Brush.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Views/Style/Theme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

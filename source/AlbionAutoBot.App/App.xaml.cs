@@ -1,24 +1,29 @@
 ﻿using System.Windows;
+using AlbionAutoBot.App.Services;
 using AlbionAutoBot.App.ViewModels;
 
 namespace AlbionAutoBot.App
 {
     public partial class App : Application
     {
-        private ManagerViewModel managerViewModel;
+        private ManagerViewModel managerVM;
+
+        private ProcessMonitoringService monitoringService;
 
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
-            managerViewModel = new ManagerViewModel();
+            managerVM = new ManagerViewModel();
+            monitoringService = ProcessMonitoringService.Initialize();
         }
 
         protected override void OnExit(ExitEventArgs e)
         {
             base.OnExit(e);
 
-            managerViewModel.Dispose();
+            managerVM.Dispose();
+            monitoringService.Dispose();
         }
     }
 }

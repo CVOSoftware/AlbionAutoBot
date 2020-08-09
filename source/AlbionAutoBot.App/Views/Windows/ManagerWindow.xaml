@@ -4,17 +4,15 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uc="clr-namespace:AlbionAutoBot.App.Views.Controls.User"
     xmlns:local="clr-namespace:AlbionAutoBot.App"
     mc:Ignorable="d"
     Title="Bot manager"
-    ResizeMode="NoResize"
-    WindowStyle="None"
-    AllowsTransparency="True"
-    Background="Transparent"
     Height="{Binding Height, Mode=TwoWay}" 
     Width="{Binding Width, Mode=TwoWay}"
     Left="{Binding CoordinateX, Mode=TwoWay}"
-    Top="{Binding CoordinateY, Mode=TwoWay}">
+    Top="{Binding CoordinateY, Mode=TwoWay}"
+    Style="{StaticResource Window.Manager}">
     <Border
         Padding="10"
         CornerRadius="5"
@@ -36,13 +34,9 @@
                     Content="X"
                     Command="{Binding CloseCommand}"/>
             </Grid>
-            <StackPanel Grid.Row="2">
-                <Button
-                    Grid.Column="0"
-                    Width="100"
-                    Content="Start"
-                    Command="{Binding StartCaptureCommand}"/>
-            </StackPanel>
+            <uc:StartCaptureUC 
+                Grid.Row="2" 
+                DataContext="{Binding StartCaptureVM}"/>
         </Grid>
     </Border>
 </Window>

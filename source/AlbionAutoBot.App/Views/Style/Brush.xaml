@@ -1,0 +1,68 @@
+﻿<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="SolidColorBrush.Black" Color="{StaticResource Color.Black}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.White" Color="{StaticResource Color.White}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Grey.Level-1" Color="{StaticResource Color.Grey.Level-1}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Grey.Level-2" Color="{StaticResource Color.Grey.Level-2}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Grey.Level-3" Color="{StaticResource Color.Grey.Level-3}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Grey.Level-4" Color="{StaticResource Color.Grey.Level-4}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Grey.Level-5" Color="{StaticResource Color.Grey.Level-5}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Grey.Level-6" Color="{StaticResource Color.Grey.Level-6}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Grey.Level-7" Color="{StaticResource Color.Grey.Level-7}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Grey.Level-8" Color="{StaticResource Color.Grey.Level-8}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Grey.Level-9" Color="{StaticResource Color.Grey.Level-9}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Grey.Level-10" Color="{StaticResource Color.Grey.Level-10}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.BlueGrey.Level-1" Color="{StaticResource Color.BlueGrey.Level-1}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.BlueGrey.Level-2" Color="{StaticResource Color.BlueGrey.Level-2}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.BlueGrey.Level-3" Color="{StaticResource Color.BlueGrey.Level-3}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.BlueGrey.Level-4" Color="{StaticResource Color.BlueGrey.Level-4}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.BlueGrey.Level-5" Color="{StaticResource Color.BlueGrey.Level-5}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.BlueGrey.Level-6" Color="{StaticResource Color.BlueGrey.Level-6}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.BlueGrey.Level-7" Color="{StaticResource Color.BlueGrey.Level-7}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.BlueGrey.Level-8" Color="{StaticResource Color.BlueGrey.Level-8}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.BlueGrey.Level-9" Color="{StaticResource Color.BlueGrey.Level-9}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.BlueGrey.Level-10" Color="{StaticResource Color.BlueGrey.Level-10}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.LightBlue.Level-1" Color="{StaticResource Color.LightBlue.Level-1}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.LightBlue.Level-2" Color="{StaticResource Color.LightBlue.Level-2}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.LightBlue.Level-3" Color="{StaticResource Color.LightBlue.Level-3}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.LightBlue.Level-4" Color="{StaticResource Color.LightBlue.Level-4}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.LightBlue.Level-5" Color="{StaticResource Color.LightBlue.Level-5}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.LightBlue.Level-6" Color="{StaticResource Color.LightBlue.Level-6}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.LightBlue.Level-7" Color="{StaticResource Color.LightBlue.Level-7}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.LightBlue.Level-8" Color="{StaticResource Color.LightBlue.Level-8}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.LightBlue.Level-9" Color="{StaticResource Color.LightBlue.Level-9}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.LightBlue.Level-10" Color="{StaticResource Color.LightBlue.Level-10}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Red.Level-1" Color="{StaticResource Color.Red.Level-1}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Red.Level-2" Color="{StaticResource Color.Red.Level-2}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Red.Level-3" Color="{StaticResource Color.Red.Level-3}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Red.Level-4" Color="{StaticResource Color.Red.Level-4}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Red.Level-5" Color="{StaticResource Color.Red.Level-5}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Red.Level-6" Color="{StaticResource Color.Red.Level-6}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Red.Level-7" Color="{StaticResource Color.Red.Level-7}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Red.Level-8" Color="{StaticResource Color.Red.Level-8}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Red.Level-9" Color="{StaticResource Color.Red.Level-9}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Red.Level-10" Color="{StaticResource Color.Red.Level-10}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Teal.Level-1" Color="{StaticResource Color.Teal.Level-1}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Teal.Level-2" Color="{StaticResource Color.Teal.Level-2}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Teal.Level-3" Color="{StaticResource Color.Teal.Level-3}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Teal.Level-4" Color="{StaticResource Color.Teal.Level-4}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Teal.Level-5" Color="{StaticResource Color.Teal.Level-5}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Teal.Level-6" Color="{StaticResource Color.Teal.Level-6}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Teal.Level-7" Color="{StaticResource Color.Teal.Level-7}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Teal.Level-8" Color="{StaticResource Color.Teal.Level-8}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Teal.Level-9" Color="{StaticResource Color.Teal.Level-9}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Teal.Level-10" Color="{StaticResource Color.Teal.Level-10}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Amber.Level-1" Color="{StaticResource Color.Amber.Level-1}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Amber.Level-2" Color="{StaticResource Color.Amber.Level-2}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Amber.Level-3" Color="{StaticResource Color.Amber.Level-3}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Amber.Level-4" Color="{StaticResource Color.Amber.Level-4}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Amber.Level-5" Color="{StaticResource Color.Amber.Level-5}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Amber.Level-6" Color="{StaticResource Color.Amber.Level-6}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Amber.Level-7" Color="{StaticResource Color.Amber.Level-7}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Amber.Level-8" Color="{StaticResource Color.Amber.Level-8}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Amber.Level-9" Color="{StaticResource Color.Amber.Level-9}"/>
+    <SolidColorBrush x:Key="SolidColorBrush.Amber.Level-10" Color="{StaticResource Color.Amber.Level-10}"/>
+
+</ResourceDictionary>

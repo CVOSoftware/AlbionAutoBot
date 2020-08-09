@@ -13,6 +13,7 @@ namespace AlbionAutoBot.App.ViewModels.Base
 
         protected WindowBaseViewModel()
         {
+            SetWindow();
             BindingToWindow();
         }
 
@@ -26,6 +27,11 @@ namespace AlbionAutoBot.App.ViewModels.Base
         }
 
         protected virtual void OnClosing(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        protected virtual void SetWindow()
         {
 
         }

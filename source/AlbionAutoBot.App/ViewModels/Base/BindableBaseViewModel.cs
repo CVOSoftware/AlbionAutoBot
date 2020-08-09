@@ -1,5 +1,7 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows;
 
 namespace AlbionAutoBot.App.ViewModels.Base
 {
@@ -23,6 +25,11 @@ namespace AlbionAutoBot.App.ViewModels.Base
             OnPropertyChanged(propertyName);
 
             return true;
+        }
+
+        protected void UpdateUI(Action action)
+        {
+            Application.Current.Dispatcher.Invoke(action);
         }
     }
 }

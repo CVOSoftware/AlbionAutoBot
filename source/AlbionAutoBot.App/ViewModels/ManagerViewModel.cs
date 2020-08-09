@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.ComponentModel;
 using MVVMLight.Messaging;
+using AlbionAutoBot.App.Messages;
 using AlbionAutoBot.App.Commands;
 using AlbionAutoBot.App.ViewModels.Base;
+using AlbionAutoBot.App.ViewModels.Components;
 using AlbionAutoBot.App.Views.Windows;
 
 namespace AlbionAutoBot.App.ViewModels
@@ -24,11 +26,15 @@ namespace AlbionAutoBot.App.ViewModels
 
         private double coordinateY;
 
+        private StartCaptureViewModel startCaptureVM;
+
         #endregion
 
         public ManagerViewModel() : base()
         {
-            SetWindow();
+            StartCaptureVM = new StartCaptureViewModel();
+
+            Messenger.Default.Register<StartCaptureWindowMessage>(this, OnStartCaptureWindow);
         }
 
         #region Properties
@@ -57,29 +63,15 @@ namespace AlbionAutoBot.App.ViewModels
             set => SetValue(ref coordinateY, value);
         }
 
+        public StartCaptureViewModel StartCaptureVM
+        {
+            get => startCaptureVM;
+            set => SetValue(ref startCaptureVM, value);
+        }
+
         #endregion
 
         #region Commands
-
-        #region StartCaptureCommand
-
-        private RelayCommand startCaptureCommand;
-
-        public RelayCommand StartCaptureCommand => RelayCommand.Register(ref startCaptureCommand, OnStartCapture, CanStartCapture);
-
-        private void OnStartCapture(object commandParameter)
-        {
-            var viewModel = new CaptureViewModel();
-
-            SetCollapseCurrentWindow();
-        }
-
-        private bool CanStartCapture(object commandParameter)
-        {
-            return true;
-        }
-
-        #endregion
 
         #region CloseCommand
 
@@ -96,6 +88,17 @@ namespace AlbionAutoBot.App.ViewModels
 
         #endregion
 
+        #region Message handlers
+
+        private void OnStartCaptureWindow(StartCaptureWindowMessage message)
+        {
+            SetCollapseCurrentWindow();
+            new CaptureViewModel();
+        }
+
+
+        #endregion
+
         #region Implementation WindowBaseViewModel
 
         protected override void OnClosing(object sender, CancelEventArgs e)
@@ -103,14 +106,22 @@ namespace AlbionAutoBot.App.ViewModels
             base.OnClosing(sender, e);
         }
 
-        #endregion
-
-        private void SetWindow()
+        protected override void SetWindow()
         {
-            Width = 300;
-            Height = 400;
+            width = 300;
+            height = 400;
             CoordinateX = GetWorkAreaWidth() - width - 20;
             CoordinateY = GetWorkAreaHeight() - height - 20;
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+            StartCaptureVM.Dispose();    
+
+            Messenger.Default.Unregister<StartCaptureWindowMessage>(this);
+        }
+
+        #endregion
     }
 }
