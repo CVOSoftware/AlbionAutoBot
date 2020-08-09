@@ -35,6 +35,7 @@ namespace AlbionAutoBot.App.ViewModels
             StartCaptureVM = new StartCaptureViewModel();
 
             Messenger.Default.Register<StartCaptureWindowMessage>(this, OnStartCaptureWindow);
+            Messenger.Default.Register<ClosingCaptureWindowMessage>(this, OnClosingCaptureWindow);
         }
 
         #region Properties
@@ -96,6 +97,10 @@ namespace AlbionAutoBot.App.ViewModels
             new CaptureViewModel();
         }
 
+        private void OnClosingCaptureWindow(ClosingCaptureWindowMessage message)
+        {
+            SetVisibleCurrentWindow();
+        }
 
         #endregion
 
@@ -120,6 +125,7 @@ namespace AlbionAutoBot.App.ViewModels
             StartCaptureVM.Dispose();    
 
             Messenger.Default.Unregister<StartCaptureWindowMessage>(this);
+            Messenger.Default.Unregister<ClosingCaptureWindowMessage>(this);
         }
 
         #endregion

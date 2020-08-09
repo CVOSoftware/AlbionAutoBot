@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.ComponentModel;
 using MVVMLight.Messaging;
+using AlbionAutoBot.App.Messages;
 using AlbionAutoBot.App.ViewModels.Base;
 using AlbionAutoBot.App.Views.Windows;
 
@@ -24,7 +25,7 @@ namespace AlbionAutoBot.App.ViewModels
         {
             base.OnClosing(sender, e);
 
-            SetVisibleCurrentWindow();
+            Messenger.Default.Send(ClosingCaptureWindowMessage.Instance);
         }
 
         #endregion

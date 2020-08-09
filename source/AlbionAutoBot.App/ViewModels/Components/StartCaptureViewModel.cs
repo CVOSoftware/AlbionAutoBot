@@ -26,6 +26,7 @@ namespace AlbionAutoBot.App.ViewModels.Components
         private void OnStartCapture(object commandParameter)
         {
             Messenger.Default.Send(StartCaptureWindowMessage.Instance);
+            Messenger.Default.Register<ClosingCaptureWindowMessage>(this, OnClosingCaptureWindow);
             Messenger.Default.Unregister<UpdateMonitoringStatusMessage>(this);
         }
 
@@ -47,6 +48,12 @@ namespace AlbionAutoBot.App.ViewModels.Components
                 RelayCommand.RaiseCanExecuteChanged();
                 monitoringStatus = message.MonitoringStatus;
             });
+        }
+
+        private void OnClosingCaptureWindow(ClosingCaptureWindowMessage message)
+        {
+            Messenger.Default.Unregister<ClosingCaptureWindowMessage>(this);
+            Messenger.Default.Register<UpdateMonitoringStatusMessage>(this, OnUpdateMonitoringStatus);
         }
 
         #endregion
@@ -74,6 +81,7 @@ namespace AlbionAutoBot.App.ViewModels.Components
             }
 
             Messenger.Default.Unregister<UpdateMonitoringStatusMessage>(this);
+            Messenger.Default.Unregister<ClosingCaptureWindowMessage>(this);
 
             disposed = true;
         }

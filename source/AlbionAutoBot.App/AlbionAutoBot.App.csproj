@@ -94,6 +94,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Messages\ClosingCaptureWindowMessage.cs" />
     <Compile Include="Messages\StartCaptureWindowMessage.cs" />
     <Compile Include="Messages\UpdateMonitoringStatusMessage.cs" />
     <Compile Include="Services\ProcessMonitoringService.cs" />
