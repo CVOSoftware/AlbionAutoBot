@@ -10,9 +10,8 @@
     d:DesignWidth="800">
     <Border>
         <Button
-            Width="100"
-            VerticalAlignment="Center"
             Content="Start"
-            Command="{Binding StartCaptureCommand}"/>
+            Command="{Binding StartCaptureCommand}"
+            Style="{StaticResource Button.Main.Default}"/>
     </Border>
 </UserControl>
