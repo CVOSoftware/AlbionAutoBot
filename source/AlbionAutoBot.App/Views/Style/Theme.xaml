@@ -7,6 +7,15 @@
         <Setter Property="WindowStyle" Value="None"/>
         <Setter Property="AllowsTransparency" Value="True"/>
         <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect 
+                    BlurRadius="5" 
+                    Direction="-90" 
+                    RenderingBias="Quality" 
+                    ShadowDepth="2"/>
+            </Setter.Value>
+        </Setter>
     </Style>
 
     <Style x:Key="Window.Capture" TargetType="{x:Type Window}">
@@ -19,18 +28,26 @@
         <Setter Property="Opacity" Value="0.1"/>
     </Style>
 
-    <Style x:Key="Button.Main.Default" TargetType="{x:Type Button}">
+    <Style x:Key="Button.Common" TargetType="{x:Type Button}" >
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Height" Value="25"/>
         <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.White}"/>
+    </Style>
+
+    <Style x:Key="Button.Square" TargetType="{x:Type Button}" BasedOn="{StaticResource Button.Common}">
+        <Setter Property="Width" Value="25"/>
+    </Style>
+
+    <Style x:Key="Button.Main.Blue" TargetType="{x:Type Button}" BasedOn="{StaticResource Button.Common}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border
                         x:Name="Border"
-                        Padding="15, 5"
-                        CornerRadius="5"
+                        Padding="5, 5"
+                        CornerRadius="3"
                         Background="{StaticResource SolidColorBrush.LightBlue.Level-7}">
                         <Grid>
                             <ContentPresenter
@@ -52,5 +69,65 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
+    <Style x:Key="Button.Main.Red" TargetType="{x:Type Button}" BasedOn="{StaticResource Button.Common}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border
+                        x:Name="Border"
+                        Padding="5, 5"
+                        CornerRadius="3"
+                        Background="{StaticResource SolidColorBrush.Red.Level-9}">
+                        <Grid>
+                            <ContentPresenter
+                                HorizontalAlignment="Center" 
+                                VerticalAlignment="Center" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Border" Property="Cursor" Value="Hand" />
+                            <Setter TargetName="Border" Property="Background" Value="{StaticResource SolidColorBrush.Red.Level-7}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="Border" Property="Background" Value="{StaticResource SolidColorBrush.Grey.Level-6}" />
+                            <Setter TargetName="Border" Property="TextBlock.Foreground" Value="{StaticResource SolidColorBrush.Grey.Level-10}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="Button.Square.Red" TargetType="{x:Type Button}" BasedOn="{StaticResource Button.Square}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border
+                        x:Name="Border"
+                        Padding="5, 5"
+                        CornerRadius="3"
+                        Background="{StaticResource SolidColorBrush.Red.Level-9}">
+                        <Grid>
+                            <ContentPresenter
+                                HorizontalAlignment="Center" 
+                                VerticalAlignment="Center" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Border" Property="Cursor" Value="Hand" />
+                            <Setter TargetName="Border" Property="Background" Value="{StaticResource SolidColorBrush.Red.Level-7}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="Border" Property="Background" Value="{StaticResource SolidColorBrush.Grey.Level-6}" />
+                            <Setter TargetName="Border" Property="TextBlock.Foreground" Value="{StaticResource SolidColorBrush.Grey.Level-10}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>
