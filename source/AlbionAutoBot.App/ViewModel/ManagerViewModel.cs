@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using MVVMLight.Messaging;
-using AlbionAutoBot.App.Messages;
-using AlbionAutoBot.App.Commands;
-using AlbionAutoBot.App.ViewModels.Base;
-using AlbionAutoBot.App.ViewModels.Components;
-using AlbionAutoBot.App.Views.Windows;
+using AlbionAutoBot.App.Message;
+using AlbionAutoBot.App.ViewModel.Base;
+using AlbionAutoBot.App.ViewModel.Component;
+using AlbionAutoBot.App.View.Windows;
 
-namespace AlbionAutoBot.App.ViewModels
+namespace AlbionAutoBot.App.ViewModel
 {
     internal class ManagerViewModel : WindowBaseViewModel<ManagerWindow>
     {
@@ -34,8 +27,8 @@ namespace AlbionAutoBot.App.ViewModels
         {
             StartCaptureVM = new StartCaptureViewModel();
 
-            Messenger.Default.Register<StartCaptureWindowMessage>(this, OnStartCaptureWindow);
-            Messenger.Default.Register<ClosingCaptureWindowMessage>(this, OnClosingCaptureWindow);
+            Messenger.Default.Register<StartCaptureWindowMsg>(this, OnStartCaptureWindow);
+            Messenger.Default.Register<CloseCaptureWindowMsg>(this, OnClosingCaptureWindow);
         }
 
         #region Properties
@@ -91,13 +84,13 @@ namespace AlbionAutoBot.App.ViewModels
 
         #region Message handlers
 
-        private void OnStartCaptureWindow(StartCaptureWindowMessage message)
+        private void OnStartCaptureWindow(StartCaptureWindowMsg message)
         {
             SetCollapseCurrentWindow();
             new CaptureViewModel();
         }
 
-        private void OnClosingCaptureWindow(ClosingCaptureWindowMessage message)
+        private void OnClosingCaptureWindow(CloseCaptureWindowMsg message)
         {
             SetVisibleCurrentWindow();
         }
@@ -124,8 +117,8 @@ namespace AlbionAutoBot.App.ViewModels
             base.Dispose(disposing);
             StartCaptureVM.Dispose();    
 
-            Messenger.Default.Unregister<StartCaptureWindowMessage>(this);
-            Messenger.Default.Unregister<ClosingCaptureWindowMessage>(this);
+            Messenger.Default.Unregister<StartCaptureWindowMsg>(this);
+            Messenger.Default.Unregister<CloseCaptureWindowMsg>(this);
         }
 
         #endregion

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.ComponentModel;
 using MVVMLight.Messaging;
-using AlbionAutoBot.App.Messages;
-using AlbionAutoBot.App.ViewModels.Base;
-using AlbionAutoBot.App.Views.Windows;
+using AlbionAutoBot.App.Message;
+using AlbionAutoBot.App.ViewModel.Base;
+using AlbionAutoBot.App.View.Windows;
 
-namespace AlbionAutoBot.App.ViewModels
+namespace AlbionAutoBot.App.ViewModel
 {
     internal class CaptureViewModel : WindowBaseViewModel<CaptureWindow>
     {
@@ -25,7 +25,7 @@ namespace AlbionAutoBot.App.ViewModels
         {
             base.OnClosing(sender, e);
 
-            Messenger.Default.Send(ClosingCaptureWindowMessage.Instance);
+            Messenger.Default.Send(CloseCaptureWindowMsg.Instance);
         }
 
         #endregion

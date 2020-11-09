@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using MVVMLight.Messaging;
-using AlbionAutoBot.App.Messages;
+using AlbionAutoBot.App.Message;
 
-namespace AlbionAutoBot.App.Services
+namespace AlbionAutoBot.App.Service
 {
     internal class ProcessMonitoringService : IDisposable
     {
@@ -58,7 +56,7 @@ namespace AlbionAutoBot.App.Services
                 while(processMonitoring)
                 {
                     var monitoringStatus = Monitoring();
-                    var message = new UpdateMonitoringStatusMessage(monitoringStatus);
+                    var message = new UpdateMonitoringStatusMsg(monitoringStatus);
 
                     Messenger.Default.Send(message);
                     Thread.Sleep(1000);

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace AlbionAutoBot.App.Views.Controls.User
+namespace AlbionAutoBot.App.View.Control.User
 {
     public partial class StartCaptureUC : UserControl
     {

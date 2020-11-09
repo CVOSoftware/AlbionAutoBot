@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Windows;
 
-namespace AlbionAutoBot.App.ViewModels.Base
+namespace AlbionAutoBot.App.ViewModel.Base
 {
     internal abstract class WindowBaseViewModel<TWindow> : BindableBaseViewModel, IDisposable
         where TWindow : Window

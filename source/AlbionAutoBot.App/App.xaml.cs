@@ -1,6 +1,6 @@
 ﻿using System.Windows;
-using AlbionAutoBot.App.Services;
-using AlbionAutoBot.App.ViewModels;
+using AlbionAutoBot.App.Service;
+using AlbionAutoBot.App.ViewModel;
 
 namespace AlbionAutoBot.App
 {

@@ -1,10 +1,9 @@
 ﻿using System;
 using MVVMLight.Messaging;
-using AlbionAutoBot.App.Messages;
-using AlbionAutoBot.App.Commands;
-using AlbionAutoBot.App.ViewModels.Base;
+using AlbionAutoBot.App.Message;
+using AlbionAutoBot.App.ViewModel.Base;
 
-namespace AlbionAutoBot.App.ViewModels.Components
+namespace AlbionAutoBot.App.ViewModel.Component
 {
     internal class StartCaptureViewModel : BindableBaseViewModel, IDisposable
     {
@@ -12,7 +11,7 @@ namespace AlbionAutoBot.App.ViewModels.Components
 
         public StartCaptureViewModel()
         {
-            Messenger.Default.Register<UpdateMonitoringStatusMessage>(this, OnUpdateMonitoringStatus);
+            Messenger.Default.Register<UpdateMonitoringStatusMsg>(this, OnUpdateMonitoringStatus);
         }
 
         #region Commands
@@ -25,9 +24,9 @@ namespace AlbionAutoBot.App.ViewModels.Components
 
         private void OnStartCapture(object commandParameter)
         {
-            Messenger.Default.Send(StartCaptureWindowMessage.Instance);
-            Messenger.Default.Register<ClosingCaptureWindowMessage>(this, OnClosingCaptureWindow);
-            Messenger.Default.Unregister<UpdateMonitoringStatusMessage>(this);
+            Messenger.Default.Send(StartCaptureWindowMsg.Instance);
+            Messenger.Default.Register<CloseCaptureWindowMsg>(this, OnClosingCaptureWindow);
+            Messenger.Default.Unregister<UpdateMonitoringStatusMsg>(this);
         }
 
         private bool CanStartCapture(object commandParameter)
@@ -41,7 +40,7 @@ namespace AlbionAutoBot.App.ViewModels.Components
 
         #region Message handlers
 
-        private void OnUpdateMonitoringStatus(UpdateMonitoringStatusMessage message)
+        private void OnUpdateMonitoringStatus(UpdateMonitoringStatusMsg message)
         {
             UpdateUI(() =>
             {
@@ -50,10 +49,10 @@ namespace AlbionAutoBot.App.ViewModels.Components
             });
         }
 
-        private void OnClosingCaptureWindow(ClosingCaptureWindowMessage message)
+        private void OnClosingCaptureWindow(CloseCaptureWindowMsg message)
         {
-            Messenger.Default.Unregister<ClosingCaptureWindowMessage>(this);
-            Messenger.Default.Register<UpdateMonitoringStatusMessage>(this, OnUpdateMonitoringStatus);
+            Messenger.Default.Unregister<CloseCaptureWindowMsg>(this);
+            Messenger.Default.Register<UpdateMonitoringStatusMsg>(this, OnUpdateMonitoringStatus);
         }
 
         #endregion
@@ -80,8 +79,8 @@ namespace AlbionAutoBot.App.ViewModels.Components
 
             }
 
-            Messenger.Default.Unregister<UpdateMonitoringStatusMessage>(this);
-            Messenger.Default.Unregister<ClosingCaptureWindowMessage>(this);
+            Messenger.Default.Unregister<UpdateMonitoringStatusMsg>(this);
+            Messenger.Default.Unregister<CloseCaptureWindowMsg>(this);
 
             disposed = true;
         }

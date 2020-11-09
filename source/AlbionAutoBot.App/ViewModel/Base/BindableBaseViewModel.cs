@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 
-namespace AlbionAutoBot.App.ViewModels.Base
+namespace AlbionAutoBot.App.ViewModel.Base
 {
     internal class BindableBaseViewModel : INotifyPropertyChanged
     {

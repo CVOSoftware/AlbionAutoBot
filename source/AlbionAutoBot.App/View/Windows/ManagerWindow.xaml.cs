@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace AlbionAutoBot.App.Views.Windows
+namespace AlbionAutoBot.App.View.Windows
 {
     public partial class ManagerWindow : Window
     {
