@@ -6,13 +6,13 @@ namespace AlbionAutoBot.App
 {
     public partial class App : Application
     {
-        private ManagerViewModel managerVM;
+        private ManagerViewModel _managerVM;
 
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
-            managerVM = new ManagerViewModel();
+            _managerVM = new ManagerViewModel();
             ProcessMonitoringService.Instance.Start();
         }
 
@@ -20,7 +20,7 @@ namespace AlbionAutoBot.App
         {
             base.OnExit(e);
 
-            managerVM.Dispose();
+            _managerVM.Dispose();
             ProcessMonitoringService.Instance.Dispose();
         }
     }

@@ -11,15 +11,15 @@ namespace AlbionAutoBot.App.ViewModel
     {
         #region Fields
 
-        private double width;
+        private double _width;
 
-        private double height;
+        private double _height;
 
-        private double coordinateX;
+        private double _coordinateX;
 
-        private double coordinateY;
+        private double _coordinateY;
 
-        private StartCaptureViewModel startCaptureVM;
+        private StartCaptureViewModel _startCaptureVM;
 
         #endregion
 
@@ -35,32 +35,32 @@ namespace AlbionAutoBot.App.ViewModel
 
         public double Width
         {
-            get => width;
-            set => SetValue(ref width, value);
+            get => _width;
+            set => SetValue(ref _width, value);
         }
 
         public double Height
         {
-            get => height;
-            set => SetValue(ref height, value);
+            get => _height;
+            set => SetValue(ref _height, value);
         }
 
         public double CoordinateX
         {
-            get => coordinateX;
-            set => SetValue(ref coordinateX, value);
+            get => _coordinateX;
+            set => SetValue(ref _coordinateX, value);
         }
 
         public double CoordinateY
         {
-            get => coordinateY;
-            set => SetValue(ref coordinateY, value);
+            get => _coordinateY;
+            set => SetValue(ref _coordinateY, value);
         }
 
         public StartCaptureViewModel StartCaptureVM
         {
-            get => startCaptureVM;
-            set => SetValue(ref startCaptureVM, value);
+            get => _startCaptureVM;
+            set => SetValue(ref _startCaptureVM, value);
         }
 
         #endregion
@@ -69,9 +69,9 @@ namespace AlbionAutoBot.App.ViewModel
 
         #region CloseCommand
 
-        private RelayCommand closeCommand;
+        private RelayCommand _closeCommand;
 
-        public RelayCommand CloseCommand => RelayCommand.Register(ref closeCommand, OnClose);
+        public RelayCommand CloseCommand => RelayCommand.Register(ref _closeCommand, OnClose);
 
         private void OnClose(object commandParameter)
         {
@@ -106,10 +106,10 @@ namespace AlbionAutoBot.App.ViewModel
 
         protected override void SetWindow()
         {
-            width = 300;
-            height = 400;
-            CoordinateX = GetWorkAreaWidth() - width - 20;
-            CoordinateY = GetWorkAreaHeight() - height - 20;
+            _width = 300;
+            _height = 400;
+            CoordinateX = GetWorkAreaWidth() - _width - 20;
+            CoordinateY = GetWorkAreaHeight() - _height - 20;
         }
 
         protected override void Dispose(bool disposing)

@@ -7,9 +7,9 @@ namespace AlbionAutoBot.App.ViewModel.Base
     internal abstract class WindowBaseViewModel<TWindow> : BindableBaseViewModel, IDisposable
         where TWindow : Window
     {
-        private bool disposed;
+        private bool _disposed;
 
-        private TWindow window;
+        private TWindow _window;
 
         protected WindowBaseViewModel()
         {
@@ -19,11 +19,11 @@ namespace AlbionAutoBot.App.ViewModel.Base
 
         private void BindingToWindow()
         {
-            window = Activator.CreateInstance<TWindow>();
+            _window = Activator.CreateInstance<TWindow>();
 
-            window.DataContext = this;
-            window.Closing += OnClosing;
-            window.Show();
+            _window.DataContext = this;
+            _window.Closing += OnClosing;
+            _window.Show();
         }
 
         protected virtual void OnClosing(object sender, CancelEventArgs e)
@@ -96,7 +96,7 @@ namespace AlbionAutoBot.App.ViewModel.Base
 
         protected virtual void Dispose(bool disposing)
         {
-            if (disposed)
+            if (_disposed)
             {
                 return;
             }
@@ -106,9 +106,9 @@ namespace AlbionAutoBot.App.ViewModel.Base
 
             }
 
-            window.Closing -= OnClosing;
+            _window.Closing -= OnClosing;
 
-            disposed = true;
+            _disposed = true;
         }
 
         #endregion

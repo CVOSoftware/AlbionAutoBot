@@ -7,7 +7,7 @@ namespace AlbionAutoBot.App.ViewModel.Component
 {
     internal class StartCaptureViewModel : BindableBaseViewModel, IDisposable
     {
-        private bool monitoringStatus;
+        private bool _monitoringStatus;
 
         public StartCaptureViewModel()
         {
@@ -18,9 +18,9 @@ namespace AlbionAutoBot.App.ViewModel.Component
 
         #region StartCaptureCommand
 
-        private RelayCommand startCaptureCommand;
+        private RelayCommand _startCaptureCommand;
 
-        public RelayCommand StartCaptureCommand => RelayCommand.Register(ref startCaptureCommand, OnStartCapture, CanStartCapture);
+        public RelayCommand StartCaptureCommand => RelayCommand.Register(ref _startCaptureCommand, OnStartCapture, CanStartCapture);
 
         private void OnStartCapture(object commandParameter)
         {
@@ -31,7 +31,7 @@ namespace AlbionAutoBot.App.ViewModel.Component
 
         private bool CanStartCapture(object commandParameter)
         {
-            return monitoringStatus;
+            return _monitoringStatus;
         }
 
         #endregion
@@ -45,7 +45,7 @@ namespace AlbionAutoBot.App.ViewModel.Component
             UpdateUI(() =>
             {
                 RelayCommand.RaiseCanExecuteChanged();
-                monitoringStatus = message.MonitoringStatus;
+                _monitoringStatus = message.MonitoringStatus;
             });
         }
 
@@ -59,7 +59,7 @@ namespace AlbionAutoBot.App.ViewModel.Component
 
         #region Implementation IDisposable
 
-        private bool disposed;
+        private bool _disposed;
 
         public void Dispose()
         {
@@ -69,7 +69,7 @@ namespace AlbionAutoBot.App.ViewModel.Component
 
         protected virtual void Dispose(bool disposing)
         {
-            if (disposed)
+            if (_disposed)
             {
                 return;
             }
@@ -82,7 +82,7 @@ namespace AlbionAutoBot.App.ViewModel.Component
             Messenger.Default.Unregister<UpdateMonitoringStatusMsg>(this);
             Messenger.Default.Unregister<CloseCaptureWindowMsg>(this);
 
-            disposed = true;
+            _disposed = true;
         }
 
         #endregion
