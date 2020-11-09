@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlbionAutoBot.Driver", "Alb
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "General", "General", "{065530F7-5109-4B4A-B55B-EC0848041899}"
 	ProjectSection(SolutionItems) = preProject
-		SolutionAssemblyInfo.cs = SolutionAssemblyInfo.cs
+		CommonAssemblyInfo.cs = CommonAssemblyInfo.cs
 	EndProjectSection
 EndProject
 Global

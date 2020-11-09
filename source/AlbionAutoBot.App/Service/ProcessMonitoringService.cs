@@ -22,20 +22,23 @@ namespace AlbionAutoBot.App.Service
 
         private static object sync = new object();
 
-        public static ProcessMonitoringService Initialize()
+        public static ProcessMonitoringService Instance
         {
-            if (instance == null)
+            get
             {
-                lock (sync)
+                if (instance == null)
                 {
-                    if (instance == null)
+                    lock (sync)
                     {
-                        instance = new ProcessMonitoringService();
+                        if (instance == null)
+                        {
+                            instance = new ProcessMonitoringService();
+                        }
                     }
                 }
-            }
 
-            return instance;
+                return instance;
+            }
         }
 
         #endregion
@@ -44,13 +47,18 @@ namespace AlbionAutoBot.App.Service
 
         private ProcessMonitoringService()
         {
-            processMonitoring = true;
-
-            Start();
+            
         }
 
-        private void Start()
+        public void Start()
         {
+            if(processMonitoring)
+            {
+                return;
+            }
+
+            processMonitoring = true;
+
             Task.Run(() =>
             {
                 while(processMonitoring)

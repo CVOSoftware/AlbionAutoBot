@@ -8,14 +8,12 @@ namespace AlbionAutoBot.App
     {
         private ManagerViewModel managerVM;
 
-        private ProcessMonitoringService monitoringService;
-
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
             managerVM = new ManagerViewModel();
-            monitoringService = ProcessMonitoringService.Initialize();
+            ProcessMonitoringService.Instance.Start();
         }
 
         protected override void OnExit(ExitEventArgs e)
@@ -23,7 +21,7 @@ namespace AlbionAutoBot.App
             base.OnExit(e);
 
             managerVM.Dispose();
-            monitoringService.Dispose();
+            ProcessMonitoringService.Instance.Dispose();
         }
     }
 }
